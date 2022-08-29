@@ -1,10 +1,13 @@
 from pages.inbox import *
 import allure
+from pages.checking import Checking
 
 
 class TestInbox:
+    @staticmethod
     @allure.title("Тест на успешную отправку письма")
-    def test_send_email(self, browser):
+    def test_send_email(browser):
         page = Inbox(browser)
         page.send_email()
-        assert browser.find_element(*InboxLocators.success_send_message).text == "Письмо отправлено"
+        check = Checking(browser)
+        check.check_text(InboxLocators.success_send_message, "Письмо отправлено")

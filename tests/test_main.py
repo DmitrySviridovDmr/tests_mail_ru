@@ -1,16 +1,21 @@
 from pages.main import *
 import allure
+from pages.checking import Checking
 
 
 class TestMain:
+    @staticmethod
     @allure.title("Smoke тест открытия главной страницы mail.ru")
-    def test_open_mail_ru(self, browser):
+    def test_open_mail_ru(browser):
         page = Main(browser)
         page.open_mail_ru()
-        assert browser.find_element(*MainLocators.enter_button).text == "Войти"
+        check = Checking(browser)
+        check.check_text(MainLocators.enter_button, "Войти")
 
+    @staticmethod
     @allure.title("Тест на успешную авторизацию")
-    def test_login(self, browser):
+    def test_login(browser):
         page = Main(browser)
         page.login()
-        assert browser.find_element(*InboxLocators.write_letter).text == "Написать письмо"
+        check = Checking(browser)
+        check.check_text(InboxLocators.write_letter, "Написать письмо")
