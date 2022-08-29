@@ -5,8 +5,10 @@ from pages.checking import Checking
 
 class TestMain:
     @staticmethod
-    @allure.title("Smoke тест открытия главной страницы mail.ru")
-    @allure.description("Открываем главную страницу mail.ru и проверяем что страница открылась")
+    @allure.title(f"Smoke тест открытия главной страницы {Main.main_url}")
+    @allure.description(
+        f"Открываем главную страницу {Main.main_url} и проверяем что страница открылась"
+    )
     def test_open_mail_ru(browser):
         page = Main(browser)
         page.open_mail_ru()

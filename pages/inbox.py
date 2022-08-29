@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver import Keys
 from pages.main import *
 

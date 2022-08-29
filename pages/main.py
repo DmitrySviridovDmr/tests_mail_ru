@@ -1,3 +1,5 @@
+import allure
+
 from pages.base import Base
 from pages.locators import *
 
