@@ -6,12 +6,13 @@ class Inbox(Main):
     def send_email(self):
         self.open_mail_ru()
         self.login()
-        self.browser.find_element(*InboxLocators.write_letter).click()
+        self.find_and_click(InboxLocators.write_letter)
         self.wait_for_element(InboxLocators.field_to)
-        self.browser.find_element(*InboxLocators.field_to).send_keys(Main.email)
-        self.browser.find_element(*InboxLocators.field_theme).send_keys(
+        self.find_and_send(InboxLocators.field_to, Main.email)
+        self.find_and_send(
+            InboxLocators.field_theme,
             f"Hello world!{Keys.TAB}{Keys.TAB}This  is "
-            f"autotest,\ndo not response :)"
+            f"autotest,\ndo not response :)",
         )
-        self.browser.find_element(*InboxLocators.send_button).click()
+        self.find_and_click(InboxLocators.send_button)
         self.wait_for_element(InboxLocators.success_send_message)

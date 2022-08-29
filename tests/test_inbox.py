@@ -6,6 +6,7 @@ from pages.checking import Checking
 class TestInbox:
     @staticmethod
     @allure.title("Тест на успешную отправку письма")
+    @allure.description("Авторизуемся под тестовым пользователем и отправляем письмо")
     def test_send_email(browser):
         page = Inbox(browser)
         page.send_email()
