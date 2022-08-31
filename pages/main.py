@@ -1,5 +1,3 @@
-import allure
-
 from pages.base import Base
 from pages.locators import *
 
@@ -10,7 +8,7 @@ class Main(Base):
     password = "asdfghjkl;'"
 
     def open_mail_ru(self):
-        self.browser.get(Main.main_url)
+        self.open(Main.main_url)
 
     def login(self):
         self.open_mail_ru()
