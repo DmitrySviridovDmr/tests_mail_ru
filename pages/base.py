@@ -6,6 +6,11 @@ class Base:
     def __init__(self, browser):
         self.browser = browser
 
+    """Переходим по ссылке"""
+
+    def open(self, url):
+        self.browser.get(url)
+
     """Ждем элемент"""
 
     def wait_for_element(self, what):
